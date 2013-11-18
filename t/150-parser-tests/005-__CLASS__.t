@@ -72,4 +72,19 @@ is(InPackage::Foo->bar, 'InPackage');
 is(InPackage::Baz->foo, 'InPackage::Bar');
 is(InPackage::Baz->bar, 'InPackage');
 
+my $error;
+{
+    package AnythingButMain;
+    eval <<'END';
+use mop;
+use strict;
+class Misparsing__CLASS__ {
+    method baz { return __CLASS__ }
+}
+END
+    $error = $@;
+}
+ok !$error, 'We should be able to eval our class outside of main::'
+  or diag $error;
+
 done_testing;
