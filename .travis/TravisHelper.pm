@@ -32,6 +32,7 @@ my @repos = (
     [ 'stevan/react',                       'master'              ],
     [ 'zakame/hashids.pm',                  'p5-mop'              ],
     [ 'PWBENNETT/Net-IPAddress-Util',       'master'              ],
+    [ 'Ovid/test-class-mop',                'master'              ],
 );
 my @dirs = ($mop_repo, (map { $_->[0] } @repos));
 
